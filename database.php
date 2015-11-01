@@ -7,7 +7,12 @@ class Db {
     private $user = "b1e58ca27de460";
     private $pwd = "001ee518";
     private $db = "acsm_f181a5111d8c5d6";
-    
+	/*
+	private $host = "localhost";
+    private $user = "root";
+    private $pwd = "admin";
+    private $db = "techblog";
+    */
     //Creates a PDO conection & sets error mode to exceptions
     public function __construct(){
     
@@ -23,7 +28,7 @@ class Db {
     }
     
     //sets the datab to null
-    public function disconect() {
+    public function disconnect() {
         
         $this->con = null;
         
