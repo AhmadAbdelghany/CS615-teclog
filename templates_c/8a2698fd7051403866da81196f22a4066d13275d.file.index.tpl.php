@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-10-31 23:46:24
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-11-05 13:53:01
          compiled from ".\templates\index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:82095634f4b8a56912-46049729%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8a2698fd7051403866da81196f22a4066d13275d' => 
     array (
       0 => '.\\templates\\index.tpl',
-      1 => 1446331561,
+      1 => 1446726753,
       2 => 'file',
     ),
   ),
@@ -54,7 +54,9 @@ $_smarty_tpl->tpl_vars['note']->_loop = true;
     
     <div id="notepad">
         <div id="notepad-header" class="header">
-            <span><a href="#" onclick="nicEditors.findEditor('content').saveContent();document.getElementById('updateForm').submit();">Save</a></span>&nbsp;|&nbsp;<span><a href="index.php?action=delete">Delete</a></span>
+            <span>
+			<!-- Make sure you save the NicEditor content back to the textarea before submitting the form-->
+			<a href="#" onclick="nicEditors.findEditor('content').saveContent();document.getElementById('updateForm').submit();">Save</a></span>&nbsp;|&nbsp;<span><a href="index.php?action=delete">Delete</a></span>
             <span class="right">Fname Lname</span>
         </div>
         <div>

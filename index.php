@@ -8,13 +8,11 @@ require_once "database.php";
 //connect to our db
 $db = new Db();
 
-if(isset($_COOKIE['ACTIVE_NOTE_ID'])) {
-    if(!$db->isValid($_COOKIE['ACTIVE_NOTE_ID'])) {
-        setcookie("ACTIVE_NOTE_ID", $db->getMaxId());
-        $activeNoteId = $db->getMaxId();
-    } else {
-        $activeNoteId = $_COOKIE['ACTIVE_NOTE_ID'];
-    }
+if(isset($_COOKIE['ACTIVE_NOTE_ID']) && $db->isValid($_COOKIE['ACTIVE_NOTE_ID'])) {
+    $activeNoteId = $_COOKIE['ACTIVE_NOTE_ID'];
+} else {
+    setcookie("ACTIVE_NOTE_ID", $db->getMaxId());
+    $activeNoteId = $db->getMaxId();
 }
 
 if(isset($_REQUEST['action'])) {
@@ -43,8 +41,7 @@ if(isset($_REQUEST['action'])) {
 
 $template = new Smarty();
 
-if(isset($activeNoteId))
-    $template->assign("ACTIVE_NOTE_ID", $activeNoteId);
+$template->assign("ACTIVE_NOTE_ID", $activeNoteId);
 $template->assign("notes", $db->getNotes());
 $template->display('index.tpl');
 
