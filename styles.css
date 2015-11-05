@@ -75,6 +75,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #tinymce-holder {
+    display: block;
+    left: 302px;
+    position: absolute;
 }
 
 .right {
