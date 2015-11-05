@@ -17,7 +17,9 @@
     
     <div id="notepad">
         <div id="notepad-header" class="header">
-            <span><a href="#" onclick="nicEditors.findEditor('content').saveContent();document.getElementById('updateForm').submit();">Save</a></span>&nbsp;|&nbsp;<span><a href="index.php?action=delete">Delete</a></span>
+            <span>
+			<!-- Make sure you save the NicEditor content back to the textarea before submitting the form-->
+			<a href="#" onclick="nicEditors.findEditor('content').saveContent();document.getElementById('updateForm').submit();">Save</a></span>&nbsp;|&nbsp;<span><a href="index.php?action=delete">Delete</a></span>
             <span class="right">Fname Lname</span>
         </div>
         <div>

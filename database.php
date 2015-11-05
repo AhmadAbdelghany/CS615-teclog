@@ -33,7 +33,10 @@ class Db {
         $this->con = null;
         
     }
-
+	/**
+		creates the notes table 
+		should run only once on installation of the application
+	**/
     public function createTable() {
         try {
             $sql = "CREATE TABLE IF NOT EXISTS notes (
@@ -48,7 +51,10 @@ class Db {
             echo $e->getMessage();
         }
     }
-
+	/**
+		creates the notes table 
+		should run only once on installation of the application
+	**/
     public function dropTable() {
         try {
             $sql = "DROP TABLE notes;";
@@ -58,7 +64,9 @@ class Db {
             echo $e->getMessage();
         }
     }
-
+	/**
+		adds a new note to the database
+	**/
     public function createNote($content) {
         try {
             $query = $this->con->prepare("INSERT INTO notes (content) VALUES (:content);");
@@ -68,7 +76,9 @@ class Db {
             echo $e->getMessage();
         }
     }
-
+	/**
+		retrieves all notes from the database 
+	**/
     public function getNotes() {
         try{
             $query = $this->con->prepare("SELECT * FROM notes ORDER BY last_modified DESC;");
@@ -78,7 +88,9 @@ class Db {
             echo $e->getMessage();
         }
     }
-
+	/**
+		get the minimum note id
+	**/
     public function getMinId() {
         try{
             $query = $this->con->prepare("SELECT min(id) FROM notes;");
@@ -88,7 +100,9 @@ class Db {
             echo $e->getMessage();
         }
     }
-
+	/**
+		get the minimum note id
+	**/
     public function getMaxId() {
         try{       
             $query = $this->con->prepare("SELECT max(id) FROM notes;");
@@ -98,7 +112,9 @@ class Db {
             echo $e->getMessage();
         }
     }
-
+	/**
+		checks if an id corresponds to an existing note id
+	**/
     public function isValid($id) {
         try{
             $query = $this->con->prepare("SELECT * FROM notes WHERE id = :id;");
@@ -109,7 +125,9 @@ class Db {
             echo $e->getMessage();
         }
     }
-
+	/**
+		deletes a note from db
+	**/
     public function deleteNote($id) {
         try{          
             $query = $this->con->prepare("DELETE FROM notes WHERE id = :id;");
@@ -119,7 +137,9 @@ class Db {
             echo $e->getMessage();
         }
     }
-
+	/**
+		updates an existing note with the new id
+	**/
     public function updateNote($id, $newContent) {
         try{
             $query = $this->con->prepare("UPDATE notes
