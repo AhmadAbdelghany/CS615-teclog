@@ -5,8 +5,8 @@ class Db {
     protected $con;
     private $host = "eu-cdbr-azure-north-d.cloudapp.net";
     private $user = "bcfa588a057935";
-    private $pwd = "001ee518";
-    private $db = "891fb21a";
+    private $pwd = "891fb21a";
+    private $db = "acsm_041b7098d974235";
 	
 // 	private $host = "localhost";
 //     private $user = "root";
